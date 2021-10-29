@@ -19,36 +19,29 @@
 
         <img src="/images/ibu_hamil.jpg" style="width: 400px; height: 400px; margin-right: 20px" alt="">
 
-        <div style="width: 450px; background: #b7e4c7;">
+        <div style="width: 400px; background: #b7e4c7;">
             <form action="" style="width: 98%; padding: 15px;">
-                <h3 style="text-align: center; margin-top: 20px;">BUAT AKUN</h3>
+                <h3 style="text-align: center; margin-top: 15px;">Masuk</h3>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="name@example.com">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1"
                         placeholder="name@example.com">
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Masukan Ulang Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
-                </div>
 
-                <button type="submit" class="btn btn-success mb-3"
-                    style="width: 100%; font-weight: bold">Daftar</button>
+                <button type="submit" class="btn btn-success mb-3" style="width: 100%; font-weight: bold">Daftar</button>
 
-                <span style="display: flex; justify-content: center;">
-                    Sudah punya akun ? <a href="/login"> Masuk disini</a>
+                <span style="display: flex; justify-content: center; margin-bottom: 15px;">
+                    Belum punya akun ? <a href="/daftar"> Daftar disini</a>
                 </span>
             </form>
+
         </div>
+
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

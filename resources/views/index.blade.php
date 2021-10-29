@@ -17,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b7e4c7;">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-weight: bolder">Sistem pakar deteksi risiko pre-eklampsia</a>
+            <a class="navbar-brand" href="/" style="font-weight: bolder">Pre-eklampsia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                 </ul>
                 <form class="d-flex">
                     <a class="btn btn-success" href="/daftar" role="button" style="margin-right: 20px;">Daftar</a>
-                    <a class="btn btn-success" href="#" role="button">Masuk</a>
+                    <a class="btn btn-success" href="/login" role="button">Masuk</a>
                 </form>
             </div>
         </div>
@@ -36,8 +36,8 @@
 
     <div class="container" style="display: flex; justify-content: center; margin-top: 70px;">
         <div class="div" style="display: flex; flex-direction: column;">
-            <h1 style="margin: auto;">Selamat Datang</h1>
-            <h2 style="margin: auto;">Silahkan Daftar atau Masuk ke dalam Sistem</h2>
+            <h2 style="margin: auto;">Selamat Datang</h2>
+            <h4 style="margin: auto;">Ke dalam sistem pakar untuk deteksi risiko pre-eklampsia pada ibu hamil</h4>
             <div style="margin: auto">
                 <img src="/images/ibu_hamil.jpg" style="width: 500px; height: auto;" alt="">
             </div>
