@@ -27,14 +27,23 @@
                     style="width: 200px; height: 100%; min-height: 100vh;">
                     <ul id="sidebar_list" class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item" style="margin-top: 20px">
-                            <a href="#" class="nav-link text-white active" aria-current="page"
-                                data-tambah-pasien="tambah">
+                            <a href="#" class="nav-link text-white active" aria-current="page" data-topik="tambah">
                                 Tambah Pasien
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-white" data-periksa="periksa">
-                                Periksa
+                            <a href="#" class="nav-link text-white" data-topik="pasien">
+                                Data Pasien
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" data-topik="kehamilan">
+                                Data Kehamilan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" data-topik="pemeriksaan">
+                                Pemeriksaan
                             </a>
                         </li>
                     </ul>
@@ -42,12 +51,21 @@
             </div>
 
             <div id="content_tambah_pasien" style="width: 100%; display: block;">
-                @yield('content_tambah_pasien')
+                @include('dashboard_tambah_pasien')
             </div>
 
-            <div id="content_periksa" style="width: 100%; display: none;">
-                @yield('content_periksa')
+            <div id="content_pasien" style="width: 100%; display: none;">
+                @include('dashboard_data_pasien')
             </div>
+
+            <div id="content_kehamilan" style="width: 100%; display: none;">
+                @include('dashboard_data_kehamilan')
+            </div>
+
+            <div id="content_pemeriksaan" style="width: 100%; display: none;">
+                @include('dashboard_pemeriksaan')
+            </div>
+
 
         </div>
     </div>
@@ -58,23 +76,39 @@
     </script>
 
     <script>
-        document.querySelectorAll(".nav-item a").forEach(list => {
-            list.addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                if (current.length > 0) {
-                    current[0].className = current[0].className.replace(" active", "");
-                }
-
-                this.className += " active"
-
-                if (this.getAttribute('data-tambah-pasien') == "tambah") {
-                    document.getElementById("content_periksa").style.display = "none"
-                    document.getElementById("content_tambah_pasien").style.display = "block"
-                } else {
-                    document.getElementById("content_periksa").style.display = "block"
-                    document.getElementById("content_tambah_pasien").style.display = "none"
-                }
-            });
+        document.addEventListener("DOMContentLoaded", function(){
+            document.querySelectorAll(".nav-item a").forEach(list => {
+                list.addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    if (current.length > 0) {
+                        current[0].className = current[0].className.replace(" active", "");
+                    }
+    
+                    this.className += " active"
+    
+                    if (this.getAttribute('data-topik') == "tambah") {
+                        document.getElementById("content_tambah_pasien").style.display = "block"
+                        document.getElementById("content_pasien").style.display = "none"
+                        document.getElementById("content_kehamilan").style.display = "none"
+                        document.getElementById("content_pemeriksaan").style.display = "none"
+                    } else if (this.getAttribute('data-topik') == "pasien") {
+                        document.getElementById("content_tambah_pasien").style.display = "none"
+                        document.getElementById("content_pasien").style.display = "block"
+                        document.getElementById("content_kehamilan").style.display = "none"
+                        document.getElementById("content_pemeriksaan").style.display = "none"
+                    }  else if (this.getAttribute('data-topik') == "kehamilan") {
+                        document.getElementById("content_tambah_pasien").style.display = "none"
+                        document.getElementById("content_pasien").style.display = "none"
+                        document.getElementById("content_kehamilan").style.display = "block"
+                        document.getElementById("content_pemeriksaan").style.display = "none"
+                    }  else {
+                        document.getElementById("content_tambah_pasien").style.display = "none"
+                        document.getElementById("content_pasien").style.display = "none"
+                        document.getElementById("content_kehamilan").style.display = "none"
+                        document.getElementById("content_pemeriksaan").style.display = "block"
+                    }
+                });
+            })
         })
     </script>
 

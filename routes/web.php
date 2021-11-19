@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\DashboardLayoutController;
+use App\Http\Controllers\TambahDataKehamilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +21,19 @@ Route::get('/', function () {
 });
 
 Route::get('/daftar', function () {
-    return view('daftar');
+    return view('sign_up');
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('sign_in');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard', DashboardLayoutController::class);
+
+Route::get('/tambah-data-kehamilan', function () {
+    return view('tambah_data_kehamilan');
 });
+
+Route::post('/tambah-pasien', [PasienController::class, 'tambahPasienBaru']);
+
+Route::post('/proses-tambah-data-kehamilan', [TambahDataKehamilanController::class, 'tambahDataKehamilan']);
