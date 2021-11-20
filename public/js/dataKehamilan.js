@@ -1,4 +1,48 @@
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
     
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var formsTambah = document.querySelectorAll('#formTambahDataKehamilan')
+    
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(formsTambah)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+            }, false)
+        })
+
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var formsEdit = document.querySelectorAll('#formEditDataKehamilan')
+    
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(formsEdit)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+
+
+    
+
+
+
+
+        
     // document.addEventListener("DOMContentLoaded", function(){
         
     //     document.getElementById("inputKosongAnakKe").style.display = "none";
@@ -31,26 +75,3 @@
     // })
 
 
-
-
-
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict'
-    
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('#formTambahDataKehamilan')
-    
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-    
-            form.classList.add('was-validated')
-            }, false)
-        })
-    })()

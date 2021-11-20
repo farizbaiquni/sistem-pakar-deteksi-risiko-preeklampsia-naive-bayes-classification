@@ -12,20 +12,40 @@
 
     <title>Home | Pre-eklampsia</title>
 
+    <style>
+
+        #container_nama_app{
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 54px;
+            width: 100%;
+            background-color: #1a759f;
+        }
+
+        #nama_app{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 22px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <div style="display: flex; flex-direction: column;">
-
-        @include('partials.navbar')
-
         <div style="display: flex;">
 
             <div>
-                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+                <div class="d-flex flex-column flex-shrink-0 text-white bg-dark"
                     style="width: 200px; height: 100%; min-height: 100vh;">
-                    <ul id="sidebar_list" class="nav nav-pills flex-column mb-auto">
+                    
+                    <div id="container_nama_app">
+                        <h5 id="nama_app" style="font-weight: bolder">Pre-eklampsia</h5>
+                    </div>
+
+                    <ul id="sidebar_list" class="nav nav-pills flex-column mb-auto p-3 ">
+                        
                         <li class="nav-item" style="margin-top: 20px">
                             <a href="#" class="nav-link text-white active" aria-current="page" data-topik="tambah">
                                 Tambah Pasien
@@ -50,25 +70,31 @@
                 </div>
             </div>
 
-            <div id="content_tambah_pasien" style="width: 100%; display: block;">
-                @include('dashboard_tambah_pasien')
-            </div>
+            <div style="display: flex; flex-direction: column; width: 100%; background-color: white;">
 
-            <div id="content_pasien" style="width: 100%; display: none;">
-                @include('dashboard_data_pasien')
-            </div>
+                @include('partials.navbar')
 
-            <div id="content_kehamilan" style="width: 100%; display: none;">
-                @include('dashboard_data_kehamilan')
-            </div>
+                <div id="content_tambah_pasien" style="width: 100%; display: block;">
+                    @include('dashboard_tambah_pasien')
+                </div>
 
-            <div id="content_pemeriksaan" style="width: 100%; display: none;">
-                @include('dashboard_pemeriksaan')
+                <div id="content_pasien" style="width: 100%; display: none;">
+                    @include('dashboard_data_pasien')
+                </div>
+
+                <div id="content_kehamilan" style="width: 100%; display: none;">
+                    @include('dashboard_data_kehamilan')
+                </div>
+
+                <div id="content_pemeriksaan" style="width: 100%; display: none;">
+                    @include('dashboard_pemeriksaan')
+                </div>
+
             </div>
 
 
         </div>
-    </div>
+    
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

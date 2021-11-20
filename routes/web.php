@@ -20,12 +20,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/daftar', function () {
+Route::get('/sign_up', function () {
     return view('sign_up');
 });
 
-Route::get('/login', function () {
+Route::get('/sign_in', function () {
     return view('sign_in');
+});
+
+Route::get('/form-pemeriksaan', function () {
+    return view('form_pemeriksaan');
+});
+
+Route::get('/hasil-pemeriksaan', function () {
+    return view('hasil_pemeriksaan');
 });
 
 Route::get('/dashboard', DashboardLayoutController::class);
