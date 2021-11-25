@@ -17,24 +17,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #b7e4c7;">
-        <div class="container">
-            <a class="navbar-brand" href="/" style="font-weight: bolder">Pre-eklampsia</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <form class="d-flex">
-                    <a class="btn btn-success" href="/daftar" role="button" style="margin-right: 20px;">Daftar</a>
-                    <a class="btn btn-success" href="/login" role="button">Masuk</a>
-                </form>
-            </div>
-        </div>
-    </nav>
+    @include('partials.navbar_home')
 
 
     <!-- ======= Hero Section ======= -->
@@ -42,8 +25,12 @@
         <div class="container">
         <h1>Selamat Datang</h1>
         <h2>Ke dalam sistem untuk menentukan tingkat risiko pre-eklampsia</h2>
-        <a href="/sign_in" class="btn-get-started scrollto">Masuk</a>
-        </div>
+        @auth 
+          <a href="/dashboard" class="btn-get-started scrollto">Masuk</a>
+        @else
+          <a href="/sign-in" class="btn-get-started scrollto">Masuk</a>
+        @endauth
+      </div> 
     </section><!-- End Hero -->
 
 
@@ -57,22 +44,22 @@
                   <div class="col-xl-4 d-flex align-items-stretch" style="height: 250px;">
                     <div class="icon-box mt-4 mt-xl-0" style="background-color: #2d6a4f;">
                       <i class="bx bx-receipt"></i>
-                      <h4>Corporis voluptates sit</h4>
-                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                      <h4>Pre-Eklampsia</h4>
+                      <p>Preeklamsia adalah kondisi peningkatan tekanan darah disertai dengan adanya protein dalam urine. Kondisi ini terjadi setelah usia kehamilan lebih dari 20 minggu.</p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch" style="height: 250px;">
                     <div class="icon-box mt-4 mt-xl-0" style="background-color: #2d6a4f;">
                       <i class="bx bx-cube-alt"></i>
-                      <h4>Ullamco laboris ladore pan</h4>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                      <h4>Petingnya Deteksi Dini</h4>
+                      <p>Preeklamsia harus diberikan penanganan untuk mencegah komplikasi dan mencegahnya berkembang menjadi eklamsia yang dapat mengancam nyawa ibu hamil dan janin.</p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch" style="height: 250px;">
                     <div class="icon-box mt-4 mt-xl-0" style="background-color: #2d6a4f;">
                       <i class="bx bx-images"></i>
-                      <h4>Labore consequatur</h4>
-                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                      <h4>Jika Mengalami Pre-Eklampsia</h4>
+                      <p>Jika didiagnosis mengalami preeklamsia, ibu hamil akan diminta untuk lebih sering melakukan pemeriksaan kehamilan ke dokter, agar kondisinya dan kondisi janinnya dapat terus terpantau.</p>
                     </div>
                   </div>
                 </div>

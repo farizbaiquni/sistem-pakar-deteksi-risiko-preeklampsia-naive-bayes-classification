@@ -9,12 +9,15 @@ class Pasien extends Model
 {
     use HasFactory;
 
-    protected $table = 'pasiens';
-    protected $guarded = ['id'];
+    protected $table = 'pasien';
+    //protected $guarded = ['id'];
     protected $fillable = [
+        'nik',
         'nama',
+        'tempat_lahir',
         'tanggal_lahir',
-        'tanggal_pertama_kehamilan',
+        'tinggi_badan',
         'nama_suami',
+        'id_user'
     ];
 }

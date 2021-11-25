@@ -5,8 +5,8 @@
       justify-content: end;
       height: 54px;
       background-color: white;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-right: 30px;
+      width: 100%;
     }
     
     .nav-container > p {
@@ -17,15 +17,15 @@
     }
 </style>
 
+
 <div class="nav-container" id="nav-container">
     <div>
         <img src="images/user.png" alt="" style="width: 35px; height: auto;">
     </div>
-    <p>Baiquni</p>
-    <button class="btn btn-sm text-white" style="background-color: #1a759f; margin-left: 10px; font-weight: bold;">
-        Logout
-    </button>  
+    <p style="font-size: 15px;">Kelompok A</p>
+    <a href="/logout-process" class="btn btn-sm text-white" style="background-color: #1a759f; margin-left: 12px;"><b>Logout</b></a> 
 </div>
+
 
 <script src="js/navbar.js"></script>
   

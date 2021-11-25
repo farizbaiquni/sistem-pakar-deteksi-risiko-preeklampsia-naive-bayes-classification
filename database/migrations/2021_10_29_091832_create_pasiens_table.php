@@ -13,13 +13,15 @@ class CreatePasiensTable extends Migration
      */
     public function up()
     {
-        Schema::create('pasiens', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pasien', function (Blueprint $table) {
+            $table->id('nik');
             $table->string('nama');
+            $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->date('tanggal_pertama_kehamilan');
             $table->string('nama_suami');
+            $table->integer('tinggi_badan');
             $table->foreignId('id_alamat');
+            $table->foreignId('id_user');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreatePasiensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasiens');
+        Schema::dropIfExists('pasien');
     }
 }

@@ -7,16 +7,17 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PasienController extends Controller
+class TambahPasienController extends Controller
 {
 
-    public function tambahPasienBaru(Request $request)
+    public function tambahPasienBaru(Request $request, $id_user)
     {
 
         //VALIDATE
         $validated = $request->validate([
             'nik' => 'required',
             'nama' => 'required',
+            'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'tinggi_badan' => 'required',
             'nama_suami' => 'required',
@@ -26,13 +27,12 @@ class PasienController extends Controller
             'kelurahan_desa' => 'required',
             'rt' => 'required',
             'rw' => 'required',
-            // 'title' => 'required|unique:posts|max:255',
         ]);
 
         try {
             DB::beginTransaction();
 
-            $id = DB::table('alamats')->insertGetId([
+            $id = DB::table('alamat')->insertGetId([
                 'provinsi' => $request->provinsi,
                 'kabupaten_kota' => $request->kabupaten_kota,
                 'kecamatan' => $request->kecamatan,
@@ -41,16 +41,19 @@ class PasienController extends Controller
                 'rw' => $request->rw,
             ]);
 
-            DB::table('pasiens')->insert([
+            DB::table('pasien')->insert([
                 'nik' => $request->nik,
                 'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
-                'tinggi_badan' => $request->tinggi_badan,
                 'nama_suami' => $request->nama_suami,
+                'tinggi_badan' => $request->tinggi_badan,
                 'id_alamat' => $id,
+                'id_user' => 0,
             ]);
 
             DB::commit();
+            return redirect('/dashboard');
         } catch (Exception $e) {
             DB::rollBack();
         }
@@ -65,7 +68,6 @@ class PasienController extends Controller
 
         // $pasien->save();
 
-        return redirect('/daftar');
     }
 
     /**

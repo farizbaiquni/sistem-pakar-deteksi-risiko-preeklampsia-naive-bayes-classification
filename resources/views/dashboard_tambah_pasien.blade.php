@@ -1,6 +1,10 @@
-<div class="container" style="display: flex; justify-content: center; background-color: rgb(219, 218, 218);">
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(219, 218, 218); width: 100%;">
 
-    <form action="{{ url('tambah-pasien') }}" method="POST"
+    {{-- <div style="width: 80%; padding: 30px; background-color: rgb(255, 255, 255); margin-top: 20px; margin-bottom: 30px; border-radius: 10px;">
+        <h5 style="text-align: center">Gagal Menambahkan Data Pasien Baru</h5>
+    </div> --}}
+
+    <form action="tambah-pasien/{{ $user->id }}" method="POST"
         style="width: 80%; padding: 30px; background-color: rgb(255, 255, 255); margin-top: 20px; margin-bottom: 30px;">
         
         @csrf
@@ -27,8 +31,8 @@
 
             <div class="mb-4">
                 <label for="inputTanggalPertamaKehamilan" class="form-label">Tempat lahir</label>
-                <input type="text" name="tanggal_pertama_kehamilan" class="form-control" id="inputTanggalPertamaKehamilan" placeholder="kabupaten/kota">
-                @error('tanggal_pertama_kehamilan')
+                <input type="text" name="tempat_lahir" class="form-control" id="inputTanggalPertamaKehamilan" placeholder="kabupaten/kota">
+                @error('tempat_lahir')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>

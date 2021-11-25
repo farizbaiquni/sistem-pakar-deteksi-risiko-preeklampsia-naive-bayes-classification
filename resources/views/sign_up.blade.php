@@ -13,32 +13,54 @@
     <title>Daftar</title>
 </head>
 
-<body
-    style="position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
-    <div class="container" style="display: flex; justify-content: center; align-items: center;">
+<style>
+    .error {
+        background-color: rgb(255, 206, 200); 
+        color: rgb(77, 77, 77); 
+        padding: 5px 10px; 
+        margin: 0 1px;
+    }
+</style>
 
-        <img src="/images/ibu_hamil.jpg" style="width: 400px; height: 400px; margin-right: 20px" alt="">
+<body style="display: flex; flex-direction: column;">
+
+    @include('partials.navbar_home')
+
+    <div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 70px; margin-left: 10px; width: 100%;">
+
+        <img src="/images/ibu_hamil.jpg" style="width: 450px; height: 400px; margin-right: 40px" alt="">
 
         <div style="width: 450px; background: #b7e4c7;">
-            <form action="" style="width: 98%; padding: 15px;">
+            <form action="sign-up-process" method="POST" style="width: 98%; padding: 15px;">
+                @csrf
                 <h3 style="text-align: center; margin-top: 20px;">BUAT AKUN</h3>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="name@example.com">
+                    <label for="inputUsername" class="form-label">Username</label>
+                    <input type="text" value="{{ old('username') }}" name="username" class="form-control" id="inputUsername" placeholder="">
+                    @error('username')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="name@example.com">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" value="{{ old('email') }}" name="email" class="form-control" id="inputEmail" placeholder="">
+                    @error('email')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="">
+                    @error('password')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Masukan Ulang Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    <label for="inputConfirmPassword" class="form-label">Masukan Ulang Password</label>
+                    <input type="password"   name="password_confirmation" class="form-control" id="inputConfirmPassword" placeholder="">
+                    @error('password_confirmation')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn btn-success mb-3"

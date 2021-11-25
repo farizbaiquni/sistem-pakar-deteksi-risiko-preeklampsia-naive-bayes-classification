@@ -14,3 +14,22 @@ for (i = 0; i < coll.length; i++) {
     } 
   });
 }
+
+
+//CLICK BUTTON TO OPEN MODAL
+$('.btn-riwayat-pemeriksaan').click(function(){
+  let nik_pasien = this.getAttribute('data-id-pasien')
+
+  const xhttpTambahKehamilan = new XMLHttpRequest();
+  xhttpTambahKehamilan.onload = function() {
+      if (xhttpTambahKehamilan.readyState == 4 && xhttpTambahKehamilan.status === 200){
+          document.getElementById("container-riwayat-pemeriksaan").innerHTML = this.responseText
+          new bootstrap.Modal(document.getElementById("modalRiwayatPemeriksaan"), {}).show()
+      }else{
+          new bootstrap.Modal(document.getElementById("modalRiwayatPemeriksaan"), {}).show()
+      }
+      
+  }
+  xhttpTambahKehamilan.open("GET", `/modal-riwayat-pemeriksaan/${nik_pasien}`, true);
+  xhttpTambahKehamilan.send();   
+})

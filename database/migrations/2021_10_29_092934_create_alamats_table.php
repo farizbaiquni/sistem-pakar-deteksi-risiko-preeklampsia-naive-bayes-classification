@@ -13,14 +13,15 @@ class CreateAlamatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('alamats', function (Blueprint $table) {
+        Schema::create('alamat', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('provinsi');
             $table->string('kabupaten_kota');
             $table->string('kecamatan');
             $table->string('kelurahan_desa');
-            $table->string('rt');
-            $table->string('rw');
+            $table->integer('rt');
+            $table->integer('rw');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ class CreateAlamatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alamats');
+        Schema::dropIfExists('alamat');
     }
 }
